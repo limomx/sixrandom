@@ -13,15 +13,9 @@ todo 六爻的基础卦辞 六爻的基础解释 存盘序列化 读盘反序列
 
 todo 存盘读盘：时间，本卦爻结果，用户id，事件 添加简单好坏判断 添加摇卦UI程序 讨论webview还是reactnative原生ui
 
-2017 07 15 增加打包 react-native bundle --entry-file ./index.ios.js --bundle-output ./ios/bundle/index.ios.jsbundle --platform ios --assets-dest ./ios/bundle --dev false
-
 2017 07 25 基本页面跳转完成 存储初步完成，基本业务流程完成
 
 todo 分享 删除历史（历史过滤） 主页面调整显示webview 点击摇动出卦
-
-2017 07 26 npm install react-native-wechat --save react-native link react-native-wechat 增加微信链接
-
-appid wx893f885b12066487 微信认证有问题，后面事情比较麻烦了
 
 第一个版本ok
 
