@@ -50,7 +50,7 @@ class MainPage extends React.Component {
     return{
       headerLeft:null,
     headerRight:(<Button title="我的" onPress={   () => navigate('MyPage')  }/>),
-    title: '万年历',
+    title: '浑天甲子历',
     }
   };
 

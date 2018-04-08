@@ -4,30 +4,30 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
-} from 'react-native';
+import React, {Component} from 'react';
+import {AppRegistry,StyleSheet,View,  Text} from 'react-native';
+import { StackNavigator,TabNavigator,NavigationActions,TabBarBottom } from 'react-navigation';
 
-export default class app extends Component {
+
+import MainPage from './src/MainPage';
+import SixrandomHistoryPage from './src/SixrandomHistoryPage';
+import SixrandomNewPage from './src/SixrandomNewPage';
+import SixrandomFullInfoPage from './src/SixrandomFullInfoPage'
+import StudentPage from './src/StudentPage'
+import SixrandomMainPage from './src/SixrandomMainPage'
+import EightrandomMainPage from './src/EightrandomMainPage'
+import EightrandomNewPage from './src/EightrandomNewPage';
+import EightrandomHistoryPage from './src/EightrandomHistoryPage'
+import MyPage from './src/MyPage'
+import MyStoryPage from './src/MyStoryPage'
+
+
+class splash extends Component {
+  
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
+      <MainPage/>
+        )
   }
 }
 
@@ -50,4 +50,20 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('app', () => app);
+const sixrandom = StackNavigator({
+  MainPage: { screen: MainPage },
+  SixrandomHistoryPage: { screen: SixrandomHistoryPage },
+  SixrandomNewPage: {screen: SixrandomNewPage},
+  SixrandomFullInfoPage: {screen: SixrandomFullInfoPage},
+  StudentPage: { screen: StudentPage },
+  SixrandomMainPage:{screen:SixrandomMainPage},
+  EightrandomMainPage:{screen:EightrandomMainPage},
+  EightrandomNewPage:{screen:EightrandomNewPage},
+  EightrandomHistoryPage:{screen:EightrandomHistoryPage},
+  MyPage:{screen:MyPage},
+  MyStoryPage:{screen:MyStoryPage},
+});
+
+
+
+AppRegistry.registerComponent('sixrandom', () =>sixrandom);

@@ -3,7 +3,7 @@ var Dimensions = require('Dimensions');
 var ReactNative = require('react-native');
 import React,{Component} from 'react';
 import {findNodeHandle,Image,StyleSheet,View, Alert,  Text,ListView,RefreshControl,Button,ScrollView} from 'react-native';
-import { captureRef } from "react-native-view-shot";
+//import { captureRef } from "react-native-view-shot";
 import TabNavigator from 'react-native-tab-navigator';  
 import { StackNavigator } from 'react-navigation';
 import SixrandomModule from './SixrandomModule'
