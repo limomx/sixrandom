@@ -3642,14 +3642,13 @@ react-transform-hmr@^1.0.4:
     global "^4.3.0"
     react-proxy "^1.1.7"
 
-react@^16.0.0-alpha.6:
-  version "16.3.1"
-  resolved "http://registry.npm.taobao.org/react/download/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
+react@16.0.0-alpha.6:
+  version "16.0.0-alpha.6"
+  resolved "http://registry.npm.taobao.org/react/download/react-16.0.0-alpha.6.tgz#2ccb1afb4425ccc12f78a123a666f2e4c141adb9"
   dependencies:
-    fbjs "^0.8.16"
+    fbjs "^0.8.9"
     loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
+    object-assign "^4.1.0"
 
 read-pkg-up@^1.0.1:
   version "1.0.1"
@@ -4687,7 +4686,3 @@ yargs@~3.10.0:
     cliui "^2.1.0"
     decamelize "^1.0.0"
     window-size "0.1.0"
-
-yarn@^1.5.1:
-  version "1.5.1"
-  resolved "http://registry.npm.taobao.org/yarn/download/yarn-1.5.1.tgz#e8680360e832ac89521eb80dad3a7bc27a40bab4"
