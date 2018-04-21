@@ -56,23 +56,28 @@ class EightrandomNewPage extends React.Component {
     for(let i=1;i<32;i++){
         days.push(i);
     }
+    /*
     for(let i=1;i<61;i++){
         minutes.push(i);
     }
-    let pickerData = [years, months, days, hours, minutes];
+    */
+    let pickerData = [years, months, days, hours];
     let date = new Date();
     let selectedValue = [
-        [date.getFullYear()],
-        [date.getMonth()+1],
-        [date.getDate()],
-        [date.getHours()],
-        [date.getMinutes()]
+        date.getFullYear(),
+        date.getMonth()+1,
+        date.getDate(),
+        date.getHours(),
+        //date.getMinutes()
     ];
     Picker.init({
+        isLoop:true,
         pickerData,
         selectedValue,
+        pickerConfirmBtnText:'选择',
+        pickerCancelBtnText:'取消',
         pickerTitleText: '日期',
-        wheelFlex: [2, 1, 1, 2, 1],
+        wheelFlex: [2, 1, 1, 2],
         onPickerConfirm: pickedValue => {
             console.log('onPickerConfirm', pickedValue);
             var t = new Date()
@@ -80,7 +85,7 @@ class EightrandomNewPage extends React.Component {
             t.setMonth(pickedValue[1]-1);
             t.setDate(pickedValue[2]);
             t.setHours(pickedValue[3]);
-            t.setMinutes(pickedValue[4]);
+
             var selecttime = new Date()
             selecttime = t;
             console.log(selecttime.toLocaleString());
@@ -91,7 +96,9 @@ class EightrandomNewPage extends React.Component {
             console.log('onPickerCancel', pickedValue);
         },
         onPickerSelect: pickedValue => {
+            console.log("pickerData",pickerData[2]);
             let targetValue = [...pickedValue];
+            
             if(parseInt(targetValue[1]) === 2){
                 if(targetValue[0]%4 === 0 && targetValue[2] > 29){
                     targetValue[2] = 29;
@@ -101,8 +108,7 @@ class EightrandomNewPage extends React.Component {
                 }
             }
             else if(targetValue[1] in {4:1, 6:1, 9:1, 11:1} && targetValue[2] > 30){
-                targetValue[2] = 30;
-                
+                targetValue[2] = 30;   
             }
             // forbidden some value such as some 2.29, 4.31, 6.31...
             if(JSON.stringify(targetValue) !== JSON.stringify(pickedValue)){
@@ -131,7 +137,7 @@ _toggle() {
     const { navigate } = navigation;
     //headerRight:(<Button title="返回" />),
     return{
-    //headerRight:(<Button title="八字历史" onPress={  () => navigate('HistoryPage')  }/>),
+    headerRight:(<Button title="八字历史" onPress={  () => navigate('EightrandomHistoryPage')  }/>),
     title: '八字排盘',
     }
     
@@ -200,6 +206,7 @@ _toggle() {
         
             />
             </View>
+            {/*}
             <TabNavigator 
        tabBarStyle={{ height: 40 }}
        sceneStyle={{ paddingBottom: 30 }}>  
@@ -209,6 +216,7 @@ _toggle() {
                         titleStyle={styles.menufont}>  
                     </TabNavigator.Item>  
                 </TabNavigator>  
+    */}
             
         </View> 
             )
