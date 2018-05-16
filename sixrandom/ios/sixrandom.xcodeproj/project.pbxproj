@@ -371,7 +371,6 @@
 		044D0A2A208AFB0000B96017 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				044D0A44208AFB0100B96017 /* RCTBEEPickerManager.xcodeproj */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -404,7 +403,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		13B07FAE1A68108700A75B9A /* 月如钩 */ = {
+		13B07FAE1A68108700A75B9A /* sixrandom */ = {
 			isa = PBXGroup;
 			children = (
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -415,7 +414,7 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
-			name = "月如钩";
+			name = sixrandom;
 			sourceTree = "<group>";
 		};
 		146834001AC3E56700842450 /* Products */ = {
@@ -462,6 +461,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				044D0A44208AFB0100B96017 /* RCTBEEPickerManager.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -489,7 +489,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
-				13B07FAE1A68108700A75B9A /* 月如钩 */,
+				13B07FAE1A68108700A75B9A /* sixrandom */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				044D0A2A208AFB0000B96017 /* Frameworks */,
@@ -510,9 +510,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		13B07F861A680F5B00A75B9A /* 月如钩 */ = {
+		13B07F861A680F5B00A75B9A /* sixrandom */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "月如钩" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "sixrandom" */;
 			buildPhases = (
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
@@ -523,7 +523,7 @@
 			);
 			dependencies = (
 			);
-			name = "月如钩";
+			name = sixrandom;
 			productName = "Hello World";
 			productReference = 13B07F961A680F5B00A75B9A /* sixrandom.app */;
 			productType = "com.apple.product-type.application";
@@ -542,7 +542,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "月如钩" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "sixrandom" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -605,7 +605,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* 月如钩 */,
+				13B07F861A680F5B00A75B9A /* sixrandom */,
 			);
 		};
 /* End PBXProject section */
@@ -933,8 +933,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lunarmoon;
-				PRODUCT_NAME = "月如钩";
+				PRODUCT_BUNDLE_IDENTIFIER = sixrandom;
+				PRODUCT_NAME = sixrandom;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -952,8 +952,8 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = lunarmoon;
-				PRODUCT_NAME = "月如钩";
+				PRODUCT_BUNDLE_IDENTIFIER = sixrandom;
+				PRODUCT_NAME = sixrandom;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1060,7 +1060,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "月如钩" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "sixrandom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -1069,7 +1069,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "月如钩" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "sixrandom" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,

@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "&#x6708;&#x5982;&#x94a9;.app"
-               BlueprintName = "&#x6708;&#x5982;&#x94a9;"
-               ReferencedContainer = "container:&#x6708;&#x5982;&#x94a9;.xcodeproj">
+               BuildableName = "&#x4e7e;&#x5764;&#x723b;.app"
+               BlueprintName = "sixrandom"
+               ReferencedContainer = "container:sixrandom.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
                BuildableName = "&#x6708;&#x5982;&#x94a9;Tests"
                BlueprintName = "&#x6708;&#x5982;&#x94a9;Tests"
-               ReferencedContainer = "container:&#x6708;&#x5982;&#x94a9;.xcodeproj">
+               ReferencedContainer = "container:sixrandom.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -61,9 +61,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "&#x6708;&#x5982;&#x94a9;.app"
-            BlueprintName = "&#x6708;&#x5982;&#x94a9;"
-            ReferencedContainer = "container:&#x6708;&#x5982;&#x94a9;.xcodeproj">
+            BuildableName = "&#x4e7e;&#x5764;&#x723b;.app"
+            BlueprintName = "sixrandom"
+            ReferencedContainer = "container:sixrandom.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "&#x6708;&#x5982;&#x94a9;.app"
-            BlueprintName = "&#x6708;&#x5982;&#x94a9;"
-            ReferencedContainer = "container:&#x6708;&#x5982;&#x94a9;.xcodeproj">
+            BuildableName = "&#x4e7e;&#x5764;&#x723b;.app"
+            BlueprintName = "sixrandom"
+            ReferencedContainer = "container:sixrandom.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
