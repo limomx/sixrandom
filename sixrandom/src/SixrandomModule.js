@@ -3816,7 +3816,7 @@ get_simple_random_draw()
 		else
 		{
 
-					cc= "        "
+					cc= "     "
 
 			
 		}
