@@ -89,7 +89,7 @@ class EightrandomHistoryPage extends React.Component {
                   var date = new Date(Number(savedate[0]))
                   var obj = {
                     name:date.toLocaleDateString()+" "+savedate[2]+":" + savedate[1]  + " " + savedate[3] + "  "+savedate[4],
-                    url:"?EightDate="+savedate[1] + "&sex=" + savedate[2],
+                    url:"?EightDate="+savedate[1] + "&sex=" + savedate[2] + "&birth=" + savedate[4],
                     id:savedate[0]
                   }
                   HistoryNameArray[i] = obj

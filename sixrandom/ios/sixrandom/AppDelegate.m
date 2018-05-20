@@ -19,7 +19,7 @@
   NSURL *jsCodeLocation;
 
   jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
-  jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.160:8081/index.ios.bundle?platform=ios"];
+  //jsCodeLocation = [NSURL URLWithString:@"http://192.168.1.160:8081/index.ios.bundle?platform=ios"];
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"sixrandom"
                                                initialProperties:nil

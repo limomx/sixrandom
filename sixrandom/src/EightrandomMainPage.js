@@ -56,6 +56,8 @@ class EightrandomMainPage extends React.Component {
 
     var sex = ""
     var EightDate = ""
+    var birth = ""
+    var gzbirth = ""
     var buildeight = new Array();
     var buildeightExt = new Array();
     var precent = new Array();
@@ -67,6 +69,8 @@ class EightrandomMainPage extends React.Component {
       //dataSource: dataSource,
       sex:sex,
       EightDate:EightDate,
+      birth:birth,
+      gzbirth:gzbirth,
       buildeight:buildeight,
       buildeightExt:buildeightExt,
       precent:precent,
@@ -87,6 +91,12 @@ class EightrandomMainPage extends React.Component {
     );
      
   }
+
+  componentWillUnmount() {
+		// 如果存在this.timer，则使用clearTimeout清空。
+		// 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
+		this.timer && clearInterval(this.timer);
+	}
 
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
@@ -120,11 +130,18 @@ class EightrandomMainPage extends React.Component {
                 args[match[1]] = match[2];
             }
         info = args
-        console.log(info.EightDate);
-        console.log(info.sex);
+        //console.log(info.EightDate);
+        //console.log(info.sex);
+        //console.log(info.birth);
+        var t = info.birth.split(" ");
+        var gz = new Date(t[0]);
+        gz.setHours(t[1]);
+        console.log(gz);
+        var EightDate = SixrandomModule.lunar_f(gz)
+        var gzDate=EightDate.gzYear +" "+ EightDate.gzMonth +" "+ EightDate.gzDate;
+        
         this.setState({  
-        //  dataSource: this.state.dataSource.cloneWithRows(info.EightDate),
-            sex:info.sex,EightDate:info.EightDate }); 
+            sex:info.sex,EightDate:info.EightDate,birth:info.birth,gzbirth:gzDate }); 
             this.buildeight();
       }
       else
@@ -132,14 +149,9 @@ class EightrandomMainPage extends React.Component {
         StorageModule.load({
             key:"lastname",
         }).then(ret => {
-       
-              //return
-
               this.setState({  
-                //dataSource: this.state.dataSource.cloneWithRows(ret.EightDate),
                 sex:ret.sex,EightDate:ret.EightDate }); 
             }).catch(err => {
-            //alert(err)
             if(false==jump)
             {
                this.begin('EightrandomNewPage')
@@ -202,50 +214,53 @@ class EightrandomMainPage extends React.Component {
         return(
     <ScrollView style={styles.container}>
 
-        
 
-           <View style={styles.bottonstylewithfont}> 
-
-           <View style={styles.Eightstyleline}> 
+           
+            <View style={styles.EightstyleSectionline}> 
+              <Text style={styles.EightstyleLinewithfont}>公历: {this.state.birth}</Text>
+            </View>
+            <View style={styles.EightstyleSectionline}> 
+              <Text style={styles.EightstyleLinewithfont}>农历: {this.state.gzbirth}</Text>
+            </View>
+            <View style={styles.EightstyleSectionline}> 
               <Text style={styles.Eightstylewithfont}>{this.state.sex}</Text>
               </View>
-              </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text style={styles.Eightstylewithfont}>令</Text>
               <Text style={styles.Eightstylewithfont}>年</Text>
               <Text style={styles.Eightstylewithfont}>月</Text>
               <Text style={styles.Eightstylewithfont}>日</Text>
               <Text style={styles.Eightstylewithfont}>时</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text style={styles.Eightstylewithfont}>亲</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[0]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[2]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[4]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[6]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text style={styles.Eightstylewithfont}>干</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[0]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[2]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[4]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[6]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text style={styles.Eightstylewithfont}>支</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[1]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[3]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[5]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.EightDate[7]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text style={styles.Eightstylewithfont}>亲</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[1]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[3]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[5]}</Text>
               <Text style={styles.Eightstylewithfont}>{this.state.buildeight[7]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>藏</Text>
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[0]}</Text>
 
@@ -253,52 +268,52 @@ class EightrandomMainPage extends React.Component {
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[4]}</Text>
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[6]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>亲</Text>
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[1]}</Text>
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[3]}</Text>
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[5]}</Text>
               <Text numberoflines={4} style={[styles.Eightstylewithfontmultline,{width:20}]}>{this.state.buildeightExt[7]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>木</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>火</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>土</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>金</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>水</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>{this.state.precent[0]}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.precent[1]}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>{this.state.precent[2]}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>{this.state.precent[3]}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>{this.state.precent[4]}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'green'}]}>{this.state.precent[5]}%</Text>
               <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.precent[6]}%</Text>
               <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'brown'}]}>{this.state.precent[7]}%</Text>
               <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'gold'}]}>{this.state.precent[8]}%</Text>
               <Text numberoflines={1} style={[styles.Eightstylewithfont,{color:'blue'}]}>{this.state.precent[9]}%</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>甲:{this.state.daykey['甲']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>丙:{this.state.daykey['丙']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>戊:{this.state.daykey['戊']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>庚:{this.state.daykey['庚']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>壬:{this.state.daykey['壬']}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'green'}]}>乙:{this.state.daykey['乙']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>丁:{this.state.daykey['丁']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'brown'}]}>己:{this.state.daykey['己']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'gold'}]}>辛:{this.state.daykey['辛']}</Text>
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'blue'}]}>癸:{this.state.daykey['癸']}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.relationshipday}</Text>
               </View>
-              <View style={styles.Eightstyleline}> 
+              <View style={styles.EightstyleCoreline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.relationshipearth}</Text>
               </View>
       
@@ -340,14 +355,10 @@ var styles = StyleSheet.create ({
   },
   list:{
     height:30,
-    //borderWidth:1,
     marginLeft: 1,
     paddingLeft:1,
-    //borderColor: '#ccc',
     borderRadius: 4,
     justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    //textAlign:'center', 
-    //textDecorationLine:'underline'
     flexWrap:'wrap',
     alignItems: 'flex-start',
     flexDirection: 'row',
@@ -357,7 +368,6 @@ var styles = StyleSheet.create ({
   },
    button:{
     height: 50,
-    //width: 50,
     backgroundColor:'transparent',
    justifyContent:'center',
    borderRadius: 4,
@@ -367,26 +377,31 @@ var styles = StyleSheet.create ({
     height:40,
     flex:1
   },
+  EightstyleLinewithfont:{
+    justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    fontSize:18
+  },
   Eightstylewithfont:{
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    //alignItems:'center',
     fontSize:18
   },
   Eightstylewithfontmultline:{
     width:40,
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    //alignItems:'center',
     fontSize:18
   },
-  Eightstyleline: {
-    //justifyContent: 'center', //虽然样式中设置了 justifyContent: 'center'，但无效 
-    //alignItems:'center',
+  EightstyleSectionline: {
     justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
-    //justifyContent:'space-between',
     flexDirection: 'row',
     marginLeft: 30, 
     marginRight: 30, 
     marginTop: 30,
+  },
+  EightstyleCoreline: {
+    justifyContent: 'space-around', //虽然样式中设置了 justifyContent: 'center'，但无效  
+    flexDirection: 'row',
+    marginLeft: 30, 
+    marginRight: 30, 
   },
 });
 module.exports=EightrandomMainPage;  

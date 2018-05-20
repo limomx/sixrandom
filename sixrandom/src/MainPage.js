@@ -135,7 +135,7 @@ class MainPage extends React.Component {
     console.log(day);
     var now = new Date();
     var time = new Date(day.dateString);
-    time.setMinutes(now.getMinutes());
+    time.setHours(now.getHours());
     var parameter = "?date="+time.toString()+"&lunar="+"999999"+"&question=";
     this.state.wanNianLiInfo =  SixrandomModule.build(parameter);
     this.setState({
