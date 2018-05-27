@@ -3,6 +3,10 @@ package com.sixrandom;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
+import fr.greweb.reactnativeviewshot.RNViewShotPackage;
+import com.smixx.reactnativeicons.ReactNativeIcons;
+import com.oblador.vectoricons.VectorIconsPackage;
+import com.beefe.picker.PickerViewPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -22,13 +26,17 @@ public class MainApplication extends Application implements ReactApplication {
     @Override
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
-          new MainReactPackage()
+          new MainReactPackage(),
+            new RNViewShotPackage(),
+            new ReactNativeIcons(),
+            new VectorIconsPackage(),
+            new PickerViewPackage()
       );
     }
 
     @Override
     protected String getJSMainModuleName() {
-      return "index.android";
+      return "index";
     }
   };
 

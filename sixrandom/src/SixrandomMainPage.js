@@ -48,6 +48,12 @@ class SixrandomMainPage extends React.Component {
      
   }
 
+  componentWillUnmount() {
+		// 如果存在this.timer，则使用clearTimeout清空。
+		// 如果你使用多个timer，那么用多个变量，或者用个数组来保存引用，然后逐个clear
+		this.timer && clearInterval(this.timer);
+	}
+
   static navigationOptions = ({navigation})=>{
     const { navigate } = navigation;
     return{
@@ -197,7 +203,6 @@ var styles = StyleSheet.create ({
     lineHeight:25,
   },
   list:{
-    height:30,
     //borderWidth:1,
     marginLeft: 1,
     paddingLeft:1,

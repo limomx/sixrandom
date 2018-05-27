@@ -1,13 +1,13 @@
 
 var Dimensions = require('Dimensions');
 import React, {Component} from 'react';
-import {StyleSheet,View, Text,Button,TouchableOpacity,RefreshControl,ScrollView} from 'react-native';
+import {StyleSheet,View, Text,Button,TouchableOpacity,RefreshControl,ScrollView,CameraRoll} from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';  
 import Storage from 'react-native-storage';
 import { AsyncStorage } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { NavigationActions } from 'react-navigation'
-
+import { captureRef } from "react-native-view-shot";
 import EightrandomHistoryPage from './SixrandomHistoryPage';
 import StorageModule from './StorageModule'
 import EightrandomNewPage from './SixrandomNewPage';
@@ -212,7 +212,8 @@ class EightrandomMainPage extends React.Component {
       jump = false;
       
         return(
-    <ScrollView style={styles.container}>
+        <View style={styles.container} >
+          <ScrollView ref="location">
 
 
            
@@ -313,12 +314,44 @@ class EightrandomMainPage extends React.Component {
               <View style={styles.EightstyleSectionline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.relationshipday}</Text>
               </View>
-              <View style={styles.EightstyleCoreline}> 
+              <View style={styles.EightstyleSectionline}> 
               <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}>{this.state.relationshipearth}</Text>
               </View>
+
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
+              <View style={styles.EightstyleSectionline}> 
+              <Text numberoflines={2} style={[styles.Eightstylewithfont,{color:'red'}]}></Text>
+              </View>
       
-                 
               </ScrollView>  
+              
+                          <TabNavigator tabBarStyle={{ height: 40 }}
+       sceneStyle={{ paddingBottom: 30 }} >
+                            <TabNavigator.Item
+                                  title="屏幕截图"  
+                                  onPress={()=>this.snapshot()}  
+                                  titleStyle={styles.menufont}>  
+                              </TabNavigator.Item>  
+                          </TabNavigator>  
+                          </View>
+                         
     )
     }
     begin(pagename)
@@ -330,6 +363,33 @@ class EightrandomMainPage extends React.Component {
           ]
         })
         this.props.navigation.dispatch(resetAction)
+    }
+    saveImg(img) {
+      console.log(img)
+      CameraRoll.saveToCameraRoll(img).then(result => {
+        alert('保存成功！地址如下：\n' + result);
+      }).catch(error => {
+          alert('保存失败！\n' + error);
+      })
+    }
+  
+    takeToImage() {
+      ReactNative.takeSnapshot(this.refs.location, {format: 'png', quality: 0.8}).then(
+          (uri) => this.saveImg(uri)
+        ).catch(
+          (error) => alert(error)
+      );
+    }
+    snapshot(){
+      captureRef(this.refs.location, {
+        format: "png",
+        quality: 1.0,
+        snapshotContentContainer: true
+      })
+      .then(
+        uri => this.saveImg(uri),
+        error => console.error("Oops, snapshot failed", error)
+      );
     }
 
    
